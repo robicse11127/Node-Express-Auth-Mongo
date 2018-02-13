@@ -10,11 +10,17 @@ var expressValidator  = require( 'express-validator' );
 var flash             = require( 'connect-flash' );
 var session           = require( 'express-session' );
 var passport          = require( 'passport' );
-var localStrategy     = require( 'passport-local' ).Strategy;
-// var mongo             = require( 'mongo' );
-// var mongoose          = require( 'mongoose' );
+var LocalStrategy     = require( 'passport-local' ).Strategy;
+var mongo             = require( 'mongodb' );
+var mongoose          = require( 'mongoose' );
 var favicon           = require( 'serve-favicon' );
 var logger            = require( 'morgan' );
+
+/**
+ * Database Connection
+ */
+mongoose.connect( 'mongodb://localhost/nodeauth' );
+var db = mongoose.connection;
 
 /**
  * Routers

@@ -4,6 +4,11 @@
 			<h1 class="page-title display-5">{{ title }}</h1>
 		</div>
 		<div class="col-sm-12 col-lg-8 offset-lg-2">
+			{{#if errors}}
+			    {{#each errors}}
+			        <div class="alert alert-danger">{{ msg }}</div>
+			    {{/each}}
+			{{/if}}
 			<form action="/users/register" method="post">
 				<div class="row">
 					<div class="col-lg-6">
@@ -37,13 +42,13 @@
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label for="password">Password</label>
-							<input type="text" name="password" class="form-control">
+							<input type="password" name="password" class="form-control">
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<div class="form-group">
-							<label for="re-password">Re-Password</label>
-							<input type="text" name="re_password" class="form-control">
+							<label for="re_password">Re-Password</label>
+							<input type="password" name="re_password" class="form-control">
 						</div>
 					</div>
 				</div>
